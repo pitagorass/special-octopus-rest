@@ -6,12 +6,14 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const schemaRegister = Joi.object({
+    
     name: Joi.string().min(6).max(255).required(),
     email: Joi.string().min(6).max(255).required().email(),
     password: Joi.string().min(6).max(1024).required()
 })
 
 router.post('/login', async (req, res) => {
+
     // validaciones
     const { error } = schemaLogin.validate(req.body);
     if (error) return res.status(400).json({ error: error.details[0].message })
@@ -32,7 +34,6 @@ router.post('/login', async (req, res) => {
         data: {token}
     })
 })
-
 
 router.post('/register', async (req, res) => {
 

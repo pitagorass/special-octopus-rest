@@ -22,8 +22,8 @@ const verifyToken = require('./src/middleware/validate-token');
 const dashboadRoutes = require('./src/routes/dashboard');
 
 // route middlewares
-app.use('/api/dashboard', verifyToken, dashboadRoutes);
-app.use('/api/user',authRoutes)
+app.use('/api/startDashboard', verifyToken, dashboadRoutes);
+app.use('/api/userLogin',authRoutes)
 // iniciar server
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
